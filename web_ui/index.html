@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirana AI Store</title>
+    <link rel="stylesheet" href="store.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Kirana AI <span>Storefront</span></div>
+        <div class="nav-links">
+            <a href="admin.html" class="admin-link">⚙️ Admin Dashboard</a>
+            <div class="cart-icon" id="cart-btn">
+                🛒 Cart <span id="cart-count">0</span>
+            </div>
+        </div>
+    </nav>
+    
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Fresh Groceries, Intelligent Recommendations</h1>
+            <p>Your favorite Indian kirana goods, driven by AI insights.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="ai-section glass">
+            <h2>✨ AI Recommended For You <span class="confidence-tag" id="ai-confidence">Connecting...</span></h2>
+            <p id="ai-reason" class="reason-text">Our backend Anomaly Engine is parsing your implicit context...</p>
+            <div class="product-grid" id="ai-recommendations">
+                <div class="loader">Hooking into FastAPI /recommend ...</div>
+            </div>
+        </section>
+
+        <section class="products-section">
+            <h2>Current Catalog</h2>
+            <div class="product-grid" id="standard-products">
+            </div>
+        </section>
+    </main>
+
+    <div class="cart-overlay hidden" id="cart-overlay">
+        <div class="cart-modal">
+            <div class="cart-header">
+                <h2>Your Basket</h2>
+                <button id="close-cart" class="close-btn">✕</button>
+            </div>
+            <div class="cart-items" id="cart-items">
+            </div>
+            <div class="cart-footer">
+                <div class="total">Total: ₹<span id="cart-total">0</span></div>
+                <button class="checkout-btn" id="checkout-btn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="checkout-overlay hidden" id="checkout-overlay">
+        <div class="checkout-modal">
+            <h2>🎉 Transaction Verified!</h2>
+            <p>Your order has hit our telemetry pipeline. GCS BackgroundTasks invoked.</p>
+            <button class="continue-btn" id="continue-shopping">Close and Reset</button>
+        </div>
+    </div>
+
+    <script src="store.js"></script>
+</body>
+</html>

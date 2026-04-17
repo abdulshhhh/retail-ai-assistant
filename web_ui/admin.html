@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retail Intelligence Engine</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar glass">
+        <div class="nav-brand">Retail Intelligence Engine</div>
+        <div class="nav-status">
+            API Status: <span id="api-status" class="status-badge connecting">Checking...</span>
+        </div>
+    </nav>
+    
+    <main class="dashboard">
+        <aside class="sidebar glass">
+            <h2>Input Parameters</h2>
+            
+            <div class="input-group">
+                <label for="product-name">Product Name</label>
+                <input type="text" id="product-name" value="Daal 1kg" placeholder="e.g. Atta 5kg">
+            </div>
+            
+            <div class="input-group">
+                <label for="past-sales">Past Sales (comma separated)</label>
+                <textarea id="past-sales" rows="3" placeholder="e.g. 10, 15, 12...">10, 15, 12, 18, 20, 25, 22</textarea>
+            </div>
+            
+            <div id="error-box" class="error-box hidden"></div>
+            
+            <div class="actions">
+                <button id="btn-forecast" class="btn blue-gradient">Forecast Demand</button>
+                <button id="btn-anomalies" class="btn dark-gradient">Detect Anomalies</button>
+                <button id="btn-analyze" class="btn green-gradient">General Analysis</button>
+            </div>
+        </aside>
+        
+        <section class="results-area">
+            <div class="glass chart-container">
+                <h3>Sales Trend Configuration</h3>
+                <canvas id="salesChart"></canvas>
+            </div>
+            
+            <div id="loader" class="loader hidden">
+                <div class="spinner"></div>
+            </div>
+            
+            <div id="results-card" class="glass results-card hidden">
+                <h3 class="results-header">💡 Intelligence Output</h3>
+                
+                <div id="metadata-grid" class="metadata-grid">
+                </div>
+                
+                <div class="intelligence-box">
+                    <div class="insight-row">
+                        <div class="insight-core">
+                            <span class="label purple">CORE INSIGHT</span>
+                            <p id="res-insight" class="insight-text"></p>
+                        </div>
+                        <div class="confidence">
+                            <span id="res-confidence" class="confidence-badge"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="action-row">
+                        <span class="label blue">RECOMMENDED ACTION</span>
+                        <p id="res-action" class="action-text"></p>
+                    </div>
+                    
+                    <div class="reason-row">
+                        <span class="label gray">REASONING</span>
+                        <p id="res-reason" class="reason-text"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
